@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('semgrep scan') {
             steps {
+                echo "jkfd"
                 sh 'pwd'
                 echo "reaching...."
                 sh 'pwd'
