@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    environment {
+        SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+    }
+
+    stages {
+        // stage('scm') {
+        //     steps {
+        //         git credentialsId: 'git_creden', url: 'https://github.com/ronitg258/juice-shop.git'
+        //     }
+        // }
+        stage('semgrep scan') {
+            steps {
+                sh '''
+                    semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude="devsecops"
+                '''
+            }
+        }
+        stage('push in defectdojo') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
