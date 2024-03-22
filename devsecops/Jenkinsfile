@@ -10,6 +10,7 @@ pipeline {
             steps {
                 echo "reaching...."
                 sh "semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude='devsecops'"
+                echo "rererer..."
             }
         }
         stage('push in defectdojo') {
