@@ -10,7 +10,7 @@ pipeline {
         stage('semgrep scan') {
             steps { 
                 echo "jkfd"
-                sh "pwd"
+                sh 'pwd'
                 // pwd
                 // echo "reaching...."
                 // pwd
