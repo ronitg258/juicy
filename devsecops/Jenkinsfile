@@ -11,18 +11,16 @@ pipeline {
             steps { 
                 echo "jkfd"
                 sh 'pwd'
-                // pwd
-                // echo "reaching...."
-                // pwd
-                //sh "semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude='devsecops'"
+                echo "reaching...."
+                sh 'pwd'
+                sh 'semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude="devsecops"'
                 echo "rererer..."
-                // '''
             }
         }
-        stage('push in defectdojo') {
-            steps {
-                echo 'Hello World'
-            }
-        }
+        // stage('push in defectdojo') {
+        //     steps {
+        //         echo 'Hello World'
+        //     }
+        // }
     }
 }
