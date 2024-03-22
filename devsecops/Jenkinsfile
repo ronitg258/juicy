@@ -9,6 +9,7 @@ pipeline {
         stage('semgrep scan') {
             steps {
                 echo "reaching...."
+                pwd
                 sh "semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude='devsecops'"
                 echo "rererer..."
             }
