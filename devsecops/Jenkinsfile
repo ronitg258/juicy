@@ -9,12 +9,14 @@ pipeline {
     stages {
         stage('semgrep scan') {
             steps {
+                sh '''
                 echo "jkfd"
-                sh 'pwd'
+                pwd
                 echo "reaching...."
-                sh 'pwd'
-                sh "semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude='devsecops'"
+                pwd
+                //sh "semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude='devsecops'"
                 echo "rererer..."
+                '''
             }
         }
         stage('push in defectdojo') {
