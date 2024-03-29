@@ -1,26 +1,24 @@
 pipeline {
     agent any
-    tools {nodejs "node"}
     
     // environment {
-    //     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+    //  SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
     // }
 
     stages {
-        stage('semgrep scan') {
+        stage('retire scan') {
             steps { 
-                echo "jkfd"
+                echo "retire started"
                 sh 'pwd'
-                echo "reaching...."
-                sh 'pwd'
-                // sh 'semgrep scan --config auto --output devsecops/semgrepscanjuiceshop_results.json --json --exclude="devsecops"'
-                echo "rererer..."
+                sh 'retire --version'
+                sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json --exclude="devsecops"'
+                echo "retire completed"
             }
         }
-        // stage('push in defectdojo') {
-        //     steps {
-        //         echo 'Hello World'
-        //     }
-        // }
+        stage('push in defectdojo') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
 }
