@@ -10,7 +10,6 @@ pipeline {
             steps { 
                 echo "retire started"
                 sh 'pwd'
-                sh 'node --version'
                 sh 'retire --version'
                 sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json --exclude="devsecops"'
                 echo "retire completed"
