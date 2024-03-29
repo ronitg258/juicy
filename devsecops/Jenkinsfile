@@ -3,7 +3,7 @@ pipeline {
     
     environment {
      // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        PATH = "/root/.nvm/versions/node/v14.21.3/bin:$PATH"
+     // PATH = "/root/.nvm/versions/node/v14.21.3/bin:$PATH"
     }
 
     stages {
