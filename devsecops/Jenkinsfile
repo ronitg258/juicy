@@ -13,7 +13,7 @@ pipeline {
                 sh 'pwd'
                 sh 'node --version'
                 sh 'retire --version'
-                sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json --exclude="devsecops"'
+                sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json'
                 echo "retire completed"
             }
         }
