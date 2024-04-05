@@ -20,7 +20,7 @@ pipeline {
                     npm install --unsafe-perm
                     ls -l /tmp/.retire-cache
                     echo "Current user: $(whoami)"
-                    retire
+                    sudo retire
                     echo "retire completed"
                 '''
             }
