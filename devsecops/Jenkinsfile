@@ -10,9 +10,9 @@ pipeline {
             steps { 
                 echo "retire started"
                 sh 'pwd'
-                sh 'nvm --version'
-                sh 'npm --version'
-                sh 'node --version'
+                //sh 'nvm --version'
+                //sh 'npm --version'
+                //sh 'node --version'
                 sh 'retire --version'
                 //sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json'
                 //sh 'retire'
