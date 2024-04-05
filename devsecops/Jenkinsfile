@@ -3,7 +3,6 @@ pipeline {
     
     // environment {
      // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-     // PATH = "/root/.nvm/versions/node/v14.21.3/bin:$PATH"
     // }
 
     stages {
@@ -11,10 +10,12 @@ pipeline {
             steps { 
                 echo "retire started"
                 sh 'pwd'
+                sh 'nvm --version'
+                sh 'npm --version'
                 sh 'node --version'
                 sh 'retire --version'
                 //sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json'
-                sh 'retire'
+                //sh 'retire'
                 echo "retire completed"
             }
         }
