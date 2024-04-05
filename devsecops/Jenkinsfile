@@ -19,6 +19,11 @@ pipeline {
                 // sh 'export NVM_DIR="$HOME/.nvm"'
                 // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 // sh 'cd /var/lib/jenkins/'
+                sh script: '''\
+                    pwd
+                    echo $PATH
+                    . ~/.nvm/nvm.sh
+                    nvm list'''.stripIndent()
                 sh 'nvm install 14'
                 sh 'nvm use 14'
                 sh 'npm install -g retire'
