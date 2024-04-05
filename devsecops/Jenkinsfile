@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    
-    // environment {
-        // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        // NVM_DIR = "${HOME}/.nvm"
-    // }
 
     stages {
         stage('retire scan') {
@@ -22,32 +17,8 @@ pipeline {
                     npm --version
                     node --version
                     retire --version
-                    echo "retire started"
+                    echo "retire completed"
                 '''
-                // echo "retire started"
-                // sh 'pwd'
-                // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                // sh '. ~/.nvm/nvm.sh'
-                // sh '. ~/.profile'
-                // sh '. ~/.bashrc'
-                // sh 'source ~/.nvm/nvm.sh'
-                // sh 'export NVM_DIR="$HOME/.nvm"'
-                // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
-                // sh 'cd /var/lib/jenkins/'
-                // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                // sh 'source ~/.nvm/nvm.sh'
-                // sh 'export NVM_DIR="${HOME}/.nvm"'
-                // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
-                // sh 'nvm install 14'
-                // sh 'nvm use 14'
-                // sh 'npm install -g retire'
-                // sh 'nvm --version'
-                // sh 'npm --version'
-                // sh 'node --version'
-                // sh 'retire --version'
-                //sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json'
-                //sh 'retire'
-                // echo "retire completed"
             }
         }
         stage('push in defectdojo') {
