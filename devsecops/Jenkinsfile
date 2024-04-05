@@ -1,9 +1,10 @@
 pipeline {
     agent any
     
-    // environment {
-     // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-    // }
+    environment {
+        // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+        NVM_DIR = "$HOME/.nvm"
+    }
 
     stages {
         stage('retire scan') {
@@ -11,8 +12,8 @@ pipeline {
                 echo "retire started"
                 sh 'pwd'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                sh 'export NVM_DIR="$HOME/.nvm"
-                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'  # This loads nvm
+                sh 'export NVM_DIR="$HOME/.nvm"'
+                sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 sh 'nvm install 14'
                 sh 'nvm use 14'
                 sh 'npm install -g retire'
