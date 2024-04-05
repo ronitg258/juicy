@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        NVM_DIR = "$HOME/.nvm"
+        NVM_DIR = "${HOME}/.nvm"
     }
 
     stages {
@@ -11,19 +11,17 @@ pipeline {
             steps { 
                 echo "retire started"
                 sh 'pwd'
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                sh '. ~/.nvm/nvm.sh'
+                // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
+                // sh '. ~/.nvm/nvm.sh'
                 // sh '. ~/.profile'
                 // sh '. ~/.bashrc'
                 // sh 'source ~/.nvm/nvm.sh'
                 // sh 'export NVM_DIR="$HOME/.nvm"'
                 // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 // sh 'cd /var/lib/jenkins/'
-                sh script: '''\
-                    pwd
-                    echo $PATH
-                    . ~/.nvm/nvm.sh
-                    nvm list'''.stripIndent()
+                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
+                sh 'export NVM_DIR="${HOME}/.nvm"'
+                sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 sh 'nvm install 14'
                 sh 'nvm use 14'
                 sh 'npm install -g retire'
