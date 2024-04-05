@@ -9,8 +9,23 @@ pipeline {
     stages {
         stage('retire scan') {
             steps { 
-                echo "retire started"
-                sh 'pwd'
+                sh '''
+                    echo "retire started"
+                    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+                    export NVM_DIR="$HOME/.nvm"
+                    [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
+                    [ -s "$NVM_DIR/bash_completion" ] && \\. "$NVM_DIR/bash_completion"
+                    nvm install 14
+                    nvm use 14
+                    npm install -g retire
+                    nvm --version
+                    npm --version
+                    node --version
+                    retire --version
+                    echo "retire started"
+                '''
+                // echo "retire started"
+                // sh 'pwd'
                 // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
                 // sh '. ~/.nvm/nvm.sh'
                 // sh '. ~/.profile'
@@ -19,20 +34,20 @@ pipeline {
                 // sh 'export NVM_DIR="$HOME/.nvm"'
                 // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 // sh 'cd /var/lib/jenkins/'
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                sh 'source ~/.nvm/nvm.sh'
-                sh 'export NVM_DIR="${HOME}/.nvm"'
-                sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
-                sh 'nvm install 14'
-                sh 'nvm use 14'
-                sh 'npm install -g retire'
-                sh 'nvm --version'
-                sh 'npm --version'
-                sh 'node --version'
-                sh 'retire --version'
+                // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
+                // sh 'source ~/.nvm/nvm.sh'
+                // sh 'export NVM_DIR="${HOME}/.nvm"'
+                // sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+                // sh 'nvm install 14'
+                // sh 'nvm use 14'
+                // sh 'npm install -g retire'
+                // sh 'nvm --version'
+                // sh 'npm --version'
+                // sh 'node --version'
+                // sh 'retire --version'
                 //sh 'retire --outputformat json --outputpath devsecops/retire_scan_results.json'
                 //sh 'retire'
-                echo "retire completed"
+                // echo "retire completed"
             }
         }
         stage('push in defectdojo') {
