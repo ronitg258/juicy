@@ -12,7 +12,7 @@ pipeline {
                 echo "retire started"
                 sh 'pwd'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                // sh '. ~/.nvm/nvm.sh'
+                sh '. ~/.nvm/nvm.sh'
                 // sh '. ~/.profile'
                 // sh '. ~/.bashrc'
                 sh 'source ~/.nvm/nvm.sh'
