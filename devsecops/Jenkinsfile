@@ -18,6 +18,7 @@ pipeline {
                     node --version
                     retire --version
                     npm install --unsafe-perm
+                    ls -l /tmp/.retire-cache
                     retire
                     echo "retire completed"
                 '''
