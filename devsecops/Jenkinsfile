@@ -12,9 +12,10 @@ pipeline {
                 echo "retire started"
                 sh 'pwd'
                 sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                sh '. ~/.nvm/nvm.sh'
-                sh '. ~/.profile'
-                sh '. ~/.bashrc'
+                // sh '. ~/.nvm/nvm.sh'
+                // sh '. ~/.profile'
+                // sh '. ~/.bashrc'
+                sh 'source ~/.nvm/nvm.sh'
                 sh 'export NVM_DIR="$HOME/.nvm"'
                 sh '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
                 sh 'cd /var/lib/jenkins/'
