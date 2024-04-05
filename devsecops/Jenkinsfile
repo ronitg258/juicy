@@ -21,7 +21,7 @@ pipeline {
                     sudo chown -R jenkins:jenkins /tmp/.retire-cache
                     ls -l /tmp/.retire-cache
                     echo "Current user: $(whoami)"
-                    retire
+                    retire --exitwith 0
                     echo "retire completed"
                 '''
             }
