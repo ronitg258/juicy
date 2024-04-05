@@ -17,6 +17,7 @@ pipeline {
                     npm --version
                     node --version
                     retire --version
+                    retire
                     echo "retire completed"
                 '''
             }
