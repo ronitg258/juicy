@@ -17,7 +17,7 @@ pipeline {
                     npm --version
                     node --version
                     retire --version
-                    npm install -g --unsafe-perm=true --allow-root
+                    npm i
                     retire
                     echo "retire completed"
                 '''
