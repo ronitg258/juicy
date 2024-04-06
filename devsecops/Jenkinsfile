@@ -18,6 +18,7 @@ pipeline {
                     node --version
                     retire --version
                     npm i
+                    retire
                     sudo chown -R jenkins:jenkins /tmp/.retire-cache
                     ls -l /tmp/.retire-cache
                     echo "Current user: $(whoami)"
