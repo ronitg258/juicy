@@ -54,7 +54,7 @@ pipeline {
                         -F 'product_name=Retire_Demo' \
                         -F 'file=@devsecops/retireScan_results.json;type=application/json' \
                         -F 'auto_create_context=true' \
-                        -F 'scan_type=Retire JSON Report'"
+                        -F 'scan_type=Retire.js Scan'"
                     echo 'Defect Completed'
                 }
             }
