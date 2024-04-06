@@ -21,7 +21,7 @@ pipeline {
                     sudo chown -R jenkins:jenkins /tmp/.retire-cache
                     ls -l /tmp/.retire-cache
                     echo "Current user: $(whoami)"
-                    retire --exitwith 0
+                    retire --exitwith 0 --outputformat=json --outputpath=devsecops/retireScan_results.json
                     echo "retire completed"
                 '''
             }
@@ -53,7 +53,7 @@ pipeline {
                     -F 'create_finding_groups_for_all_findings=true' \
                     -F 'tags=retire' \
                     -F 'product_name=Retire_Demo' \
-                    -F 'file=@devsecopsFiles/Semgrepscansdms_results.json;type=application/json' \
+                    -F 'file=@devsecops/retireScan_results.json;type=application/json' \
                     -F 'auto_create_context=true' \
                     -F 'scan_type=Retire JSON Report'"
                 echo 'Defect Completed'
