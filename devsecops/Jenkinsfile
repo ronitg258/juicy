@@ -37,7 +37,7 @@ pipeline {
                 echo "Engagement Name: ${engagementName}"
                 
                    sh "curl -X 'POST' \
-                    'https://defectdojo.dalmiabharat.com/api/v2/reimport-scan/' \
+                    'http://localhost:8080/api/v2/reimport-scan/' \
                     -H 'accept: application/json' \
                     -H 'Authorization: Token bd0cdb143f1e16d506864b7202f99d2ee9b04ca7' \
                     -H 'Content-Type: multipart/form-data' \
